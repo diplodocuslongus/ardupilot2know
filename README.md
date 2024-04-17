@@ -2,8 +2,9 @@
 
 # ardupilot and ROS and Gazebo
 
-Install ardupilot
+## Install ardupilot
 
+Installed in /home/ludovic/builds/ArduPilot on the gonze
 git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git
 cd ardupilot/
 Tools/environment_install/install-prereqs-ubuntu.sh -y

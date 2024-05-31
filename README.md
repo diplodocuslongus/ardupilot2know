@@ -82,3 +82,18 @@ https://github.com/ArduPilot/ardupilot_gazebo
 
 https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.html
 
+## install MAVExplorer
+
+Enables to explore .bin log files.
+tested and installed on fw but didn't document the install because of a crash, the following may work:
+
+
+In a virtual environment, 
+
+pip install wxpython
+pip install  pymavlink mavproxy
+
+Then launch:
+
+MAVExplorer.py path/to/ardupilot_log.bin
+https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html

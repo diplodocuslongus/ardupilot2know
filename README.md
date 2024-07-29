@@ -113,3 +113,12 @@ Then launch:
 
 MAVExplorer.py path/to/ardupilot_log.bin
 https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html
+
+# EKF
+
+## source switching
+
+https://ardupilot.org/copter/docs/common-ekf-sources.html
+
+Example: swtich from using the compass to not using the compass and only relying on the IMU for heading.
+

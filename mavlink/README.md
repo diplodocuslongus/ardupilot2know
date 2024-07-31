@@ -1,17 +1,66 @@
 # for now essentially pymavlink
 
+## essential references
+
+### messages
+
+dialect ardupilotmega:
+https://mavlink.io/en/messages/ardupilotmega.html
+
+common:
+
+https://mavlink.io/en/messages/common.html
+
+Message ID list
+https://groups.google.com/g/mavlink/c/1zgHUM67E-A
+
+### parameters
+
+https://www.ardusub.com/developers/full-parameter-list.html
+
+ardupilot parameter, copter.
+
+https://ardupilot.org/copter/docs/parameters.html#compass-ofs-x-compass-offsets-in-milligauss-on-the-x-axis
+
+### mavlink commands
+
+https://ardupilot.org/dev/docs/mavlink-commands.html
+
+
+### microservices
+
+### examples
+
+https://www.ardusub.com/developers/pymavlink.html
+
+
+
 https://mavlink.io/en/mavgen_python/
 
 ## setting connection
 
 https://mavlink.io/en/mavgen_python/#setting_up_connection
 
+### example connection
 
+https://docs.px4.io/main/en/companion_computer/pixhawk_rpi.html
+
+https://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
+
+## sensor calibrations
+
+### magnetometer / compass
+
+https://discuss.bluerobotics.com/t/pixhawk-accelerometer-and-compass-calibration-though-pymavlink/11453/2
 
 
 ## dialect
 
-mavlink comes with 2 dialects, and depending on which one is set, some command will not be understood.
+Dialects in MAVLink define communication protocols and other types of messages, most commonly for specific HW vendors. They are defined in .xml files.
+
+https://mavlink.io/en/messages/#dialects
+
+pymavlink comes with 2 dialects, and depending on which one is set, some command will not be understood.
 For example running magtest.py from the examples will return MAVLink object has no attribute 'action_send'.
 
 This is because the default is mavlinkv10 which doesn't know this command.
@@ -24,12 +73,6 @@ https://discuss.ardupilot.org/t/enabling-mavlink-2-0-packet-and-signing-with-pym
 
 https://discuss.bluerobotics.com/t/accessing-real-time-mavlink-messages-via-pymavlink/11355/3
 
-
-## example connection
-
-https://docs.px4.io/main/en/companion_computer/pixhawk_rpi.html
-
-https://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
 
 
 ### pixhawk mini4

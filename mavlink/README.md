@@ -1,4 +1,4 @@
-# for now essentially pymavlink
+# pymavlink
 
 ## essential references
 
@@ -8,11 +8,10 @@ dialect ardupilotmega:
 https://mavlink.io/en/messages/ardupilotmega.html
 
 common:
-
 https://mavlink.io/en/messages/common.html
 
 Message ID list
-https://groups.google.com/g/mavlink/c/1zgHUM67E-A
+https://groups.google.com/g/mavlink/c/1zgHUM67E-A/m/qJ0RZ7hdAgAJ
 
 ### parameters
 
@@ -116,4 +115,80 @@ https://ardupilot.org/plane/docs/parameters.html
 
 PX4:
 https://discuss.px4.io/t/mav-cmd-do-set-mode-all-possible-modes/8495/2
+
+# "manual" calibration using mymavlink
+
+Good info here.
+https://discuss.bluerobotics.com/t/pixhawk-accelerometer-and-compass-calibration-though-pymavlink/11453/2
+Ongoign, WIP.
+
+Use QGC is much faster
+
+https://github.com/ArduPilot/MAVProxy/blob/master/MAVProxy/modules/mavproxy_calibration.py
+
+https://www.ardusub.com/reference/ardusub/sensors-setup-page.html#accelerometer-calibration
+
+For compass, see all COMPASS related  messages here:
+
+https://www.ardusub.com/developers/full-parameter-list.html
+
+https://github.com/mavlink/qgroundcontrol/issues/5938
+
+Move in relevant section: !!
+
+https://ardupilot.org/copter/docs/common-magfit.html
+
+https://ardupilot.org/copter/docs/common-accelerometer-calibration.html#common-accelerometer-calibration
+
+https://ardupilot.org/copter/docs/common-compass-setup-advanced.html
+https://ardupilot.org/copter/docs/common-accelerometer-calibration.html#common-accelerometer-calibration
+
+## mavproxy
+
+Install with pip in a python virtualenvironment.
+
+Just run mavproxy.py with a FC connected via USB, it will autodetect it (tested with pixhawk 4mini)
+
+## usage examples:
+
+https://ardupilot.org/mavproxy/docs/getting_started/examples.html
+
+## modules
+
+load modules with e.g. at the mavproxy prompt:
+
+### calibration
+
+https://ardupilot.org/mavproxy/docs/uav_configuration/calibration.html
+
+#### IMU calibration
+
+run `accelcalsimple`
+
+Or, for compass (simple calib)
+
+STABILIZE> magcal
+STABILIZE> Usage: magcal <start|accept|cancel|yaw>
+
+STABILIZE> magcal start
+STABILIZE> Got COMMAND_ACK: DO_START_MAG_CAL: ACCEPTED
+
+
+#### compass calibration
+
+    module load magical
+
+start the module¨
+
+    magical_ui
+
+openGL error (solved with  pip install PyOpenGL PyOpenGL_accelerate)
+
+No more opengl but then: 
+    
+    AttributeError: 'Colour' object has no attribute 'SetFromString'
+
+
+List of modules:
+https://ardupilot.org/mavproxy/docs/modules/index.html
 

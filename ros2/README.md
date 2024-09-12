@@ -1,9 +1,8 @@
 # ardupilot and ros2
 
-Follow everything here, given that mavproxy and ros2 humble were already installed on my system (FW notebook, popos 22).
+Follow everything [here](https://ardupilot.org/dev/docs/ros2.html), given that mavproxy and ros2 humble were already installed on my system (FW notebook, pop-os 22).
 
-https://ardupilot.org/dev/docs/ros2.html
-
+    cd ~
     mkcd ROS2_workspaces
     mkcd ardupilot_ws
     mkdir src
@@ -20,14 +19,16 @@ https://ardupilot.org/dev/docs/ros2.html
     microxrceddsgen -version
     # returned : null
 
-Testing the installation:
+## Testing the installation:
 
     colcon build --packages-up-to ardupilot_dds_tests
     source ./install/setup.bash
     colcon test --executor sequential --parallel-workers 0 --base-paths src/ardupilot --event-handlers=console_cohesion+
     colcon test-result --all --verbose
 
-ROS2 and SITL
+Returned that all tests passed.
+
+## ROS2 and SITL
 
     colcon build --packages-up-to ardupilot_sitl
     source install/setup.bash
@@ -60,7 +61,8 @@ Returned:
     [INFO] [micro_ros_agent-1]: process started with pid [108926]
 ...
 
-See ros2 related info, in another terminal / tab, run:
+See ros2 related info for ros commands.
+In another terminal / tab, run:
 
     $ ros2 node list
     /ardupilot_dds
@@ -119,7 +121,6 @@ https://ardupilot.org/dev/docs/ros2-gazebo.html
 
 ### gazebo installation
 
-
 gazebo refers to either gazebo classic or the new gazebo.
 On my system, gazebo -version returns:
 
@@ -130,17 +131,17 @@ This is the so called gazebo11. The new gazebo has versions refered to by names:
 
     sudo add-apt-repository ppa:openrobotics/gazebo11-gz-cli
     sudo apt update
-    sudo apt-get install gazebo11
+    sudo apt install gazebo11
 
-Reference:
+References:
 
-https://gazebosim.org/docs/harmonic/install_gz11_side_by_side/
-and to install gazebo harmonic:
+- https://gazebosim.org/docs/harmonic/install_gz11_side_by_side/
+- https://gazebosim.org/docs/harmonic/install_ubuntu/
 
-https://gazebosim.org/docs/harmonic/install_ubuntu/
+(to install gazebo harmonic)
 
-    sudo apt-get update
-    sudo apt-get install lsb-release gnupg
+    sudo apt update
+    sudo apt install lsb-release gnupg
 
     sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
@@ -149,40 +150,39 @@ https://gazebosim.org/docs/harmonic/install_ubuntu/
 
 Test by launching `gz sim` (works).
 
-Add export GZ_VERSION=harmonic to ~/.bashrc.
+Add `export GZ_VERSION=harmonic` to ~/.bashrc.
 
 Source .bashrc.
 
-### pursue installation
+Pursue installation
 
+### Update ROS dependencies:
 
-Update ROS dependencies:
+    cd ~/ardu_ws
+    source /opt/ros/humble/setup.bash
+    sudo apt update
+    rosdep update
+    rosdep install --from-paths src --ignore-src -r
 
-cd ~/ardu_ws
-source /opt/ros/humble/setup.bash
-sudo apt update
-rosdep update
-rosdep install --from-paths src --ignore-src -r
-
-Build and Run Tests¶
+### Build and Run Tests¶
 
 Build:
 
-cd ~/ardu_ws
-colcon build --packages-up-to ardupilot_gz_bringup
+    cd ~/ardu_ws
+    colcon build --packages-up-to ardupilot_gz_bringup
 
 If you’d like to test your installation, run:
 
-cd ~/ardu_ws
-source install/setup.bash
-colcon test --packages-select ardupilot_sitl ardupilot_dds_tests ardupilot_gazebo ardupilot_gz_applications ardupilot_gz_description ardupilot_gz_gazebo ardupilot_gz_bringup
-colcon test-result --all --verbose
+    cd ~/ardu_ws
+    source install/setup.bash
+    colcon test --packages-select ardupilot_sitl ardupilot_dds_tests ardupilot_gazebo ardupilot_gz_applications ardupilot_gz_description ardupilot_gz_gazebo ardupilot_gz_bringup
+    colcon test-result --all --verbose
 
-ee also video:
+    Summary: 319 tests, 0 errors, 7 failures, 69 skipped
+See also video:
+
 https://www.youtube.com/watch?time_continue=1&v=HZKXrSAE-ac&embeds_referring_euri=https%3A%2F%2Fardupilot.org%2F&source_ve_path=Mjg2NjY
 
-Summary: 319 tests, 0 errors, 7 failures, 69 skipped
- gonze:ardupilot_ws/  $ colcon test-result --all --verbose
 
 
 

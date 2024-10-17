@@ -103,11 +103,17 @@ https://ardupilot.org/mavproxy/docs/getting_started/download_and_installation.ht
 Enables to explore .bin log files.
 tested and installed on fw but didn't document the install because of a crash, the following may work:
 
+### Create a virtual environment
 
-In a virtual environment, 
+I use mkvirtualenv.
 
+Source the virtual environment and install:
+
+pip install jupyter numpy matplotlib 
+pip install ardupilot-log-reader
 pip install wxpython
 pip install  pymavlink mavproxy
+
 
 Then launch:
 

@@ -1,5 +1,66 @@
 # ardurover
 
+## required items
+
+- chassis (a wood plank can work!)
+- motors
+- motor controller
+- encoder (optional, see below)
+- wheels
+- autopilot (flight controller)
+- cabling
+- RC
+
+### autopilot
+
+Autopilot supported by ardupilot rover:
+https://ardupilot.org/rover/docs/common-autopilots.html
+
+
+### motors and motor drivers
+
+https://ardupilot.org/rover/docs/common-brushed-motors.html
+
+Supported (verified) drivers from pololu:
+
+https://ardupilot.org/rover/docs/common-brushed-motors.html
+Pololu G2 High-Power Motor Driver supports “BrushedWithRelay”
+Pololu DRV8838 Motor Driver supports “BrushedWithRelay”
+The [DRV8835](https://www.pololu.com/product/2135) is the dual version of the DRV8838 and will work fine too.
+
+
+### encoders
+
+ArduRover doesn't require encoders from the motor signal, but they can be used as an optional input to the autopilot to improve performance. 
+The system can operate using other sensors for navigation, such as GPS and Inertial Measurement Units (IMUs). 
+
+*Scenarios when encoders are not required*
+
+
+- GPS-based navigation in outdoor environments, 
+- Simple manual or RC control
+
+*Benefits of using encoders*
+
+Integrating wheel encoders improves the vehicle's navigation.
+
+- Improved position estimation: (By measuring wheel rotation, encoders can improve the accuracy of position and distance traveled)
+- Better speed control: Encoders provide more accurate feedback on wheel speed, allowing for more precise throttle control.
+- More accurate turning: For vehicles with skid-steer systems (like tanks, the pololu romi, etc...), encoders help the autopilot better determine how far each wheel has turned, which can help reduce error accumulation from wheel slip during turns.
+- Support for the Extended Kalman Filter (EKF3): For advanced and more accurate navigation, ArduRover uses an EKF to fuse sensor data. Encoders can be integrated into the EKF3 algorithm to improve the vehicle's position estimation. 
+
+*Using encoders with ArduRover*
+
+https://ardupilot.org/rover/docs/wheel-encoder.html
+
+Connect their A and B outputs to the autopilot's GPIO pins, such as the AUX OUT pins on a Pixhawk controller. 
+Configure parameters in ArduRover: 
+
+    WENC_TYPE and WENC2_TYPE
+    WENC_CPR (Counts Per Revolution)
+    WENC_RADIUS (Wheel Radius)
+    EKF3 parameters to enable encoder data input
+
 ## posts from the forum
 
 https://discuss.ardupilot.org/t/ardurover-with-the-pololu-romi/41991
@@ -10,6 +71,8 @@ https://discuss.ardupilot.org/t/ardurover-with-the-pololu-romi/41991
 https://ardupilot.org/planner/docs/common-loading-firmware-onto-chibios-only-boards.html
 and:
 https://www.mateksys.com/?p=6905
+
+https://ardupilot.org/rover/docs/common-matekh743-wing.html
 
 Got the mateksys h743-SLIM v3 (EOL)
 

@@ -104,7 +104,7 @@ Follow the on-screen instructions to complete the installation.
 
 I ended up with is installed in /usr/local, start it with:
 
-/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/./STM32CubeProgrammerLauncher
+    sudo /usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/./STM32CubeProgrammerLauncher
 
 2. Prepare the Matek H743-Slim
 
@@ -118,7 +118,7 @@ I ended up with is installed in /usr/local, start it with:
     In the main window, look for the connection options on the right side. Select the USB connection type.
     Click the Refresh button. A USB port should appear in the dropdown menu.
     Click the Connect button.
-    On the left-hand menu, select the Erasing & Programming tab.
+    On the left-hand "3 lines icon" menu, select the Erasing & Programming tab.
     Click the Browse button and select the ardurover_with_bl.hex file you downloaded earlier.
     Check the box for Full chip erase. This is highly recommended for a clean install, especially if you are switching from a different firmware like Betaflight or INAV.
     Click Start Programming to begin the flash process.

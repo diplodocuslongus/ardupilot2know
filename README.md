@@ -128,3 +128,14 @@ https://ardupilot.org/copter/docs/common-ekf-sources.html
 
 Example: swtich from using the compass to not using the compass and only relying on the IMU for heading.
 
+## Firmware
+
+https://firmware.ardupilot.org/
+
+Ex: rover:
+https://firmware.ardupilot.org/Rover/
+
+Use stable, or beta, or latest...
+https://firmware.ardupilot.org/Rover/stable/
+
+

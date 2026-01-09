@@ -81,6 +81,8 @@ https://www.mateksys.com/?portfolio=h743-slim#tab-id-3
 
 STM32CubeProgrammer: Download the latest version  for Linux from the STMicroelectronics website. 
 
+![flash](../img/STM32CubeProgrammer_001.jpg)
+
 https://www.st.com/en/development-tools/stm32cubeprog.html#get-software
 
 ArduRover Firmware: Go to the ArduPilot firmware server to download the correct firmware for your board.

@@ -102,7 +102,7 @@ Flashing the FW on the autopilot
 
 Follow the on-screen instructions to complete the installation. 
 
-I ended up with is installed in /usr/local, start it with:
+I ended up with it installed in /usr/local, start it with:
 
     sudo /usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/./STM32CubeProgrammerLauncher
 
